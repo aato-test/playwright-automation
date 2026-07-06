@@ -38,3 +38,8 @@ jobs:
         name: playwright-test-execution-report
         path: report.html
         retention-days: 14
+    - name: Create Test Results Directory
+      run: mkdir -p test-results
+
+    - name: Execute Automated Regression Suites
+      run: pytest
