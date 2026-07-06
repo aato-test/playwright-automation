@@ -28,6 +28,9 @@ jobs:
     - name: Install System-Level Browser Binaries
       run: npx playwright install --with-deps
 
+    - name: Create Test Results Directory
+      run: mkdir -p test-results
+
     - name: Execute Automated Regression Suites
       run: pytest
 
@@ -36,10 +39,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: playwright-test-execution-report
-        path: report.html
+        path: test-results/
         retention-days: 14
-    - name: Create Test Results Directory
-      run: mkdir -p test-results
-
-    - name: Execute Automated Regression Suites
-      run: pytest
